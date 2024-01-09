@@ -1,11 +1,5 @@
+#include <locale>
 #include <iostream>
-
-bool is_upper(char c)
-{
-    if(c >= 'A' && c <= 'Z')
-        return true;
-    return false;
-}
 
 int main(int argc,char *argv[])
 {
@@ -22,12 +16,8 @@ int main(int argc,char *argv[])
             std::locale l;
             while(*argv[i])
             {
-                if(is_upper(*argv[i]))
-                    std::cout << *argv[i];
-                else
-                    std::cout << std::toupper(*argv[i], l);
+                std::cout << std::toupper(*argv[i], l);
                 argv[i]++;
-            
             }
             i++;
         }
