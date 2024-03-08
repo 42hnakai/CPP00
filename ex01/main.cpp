@@ -1,28 +1,29 @@
 #include <iostream>
 #include <string>
+#include "ex01.hpp"
 
-void display_contacts()
+// void display_contacts()
+// {
+//     std::cout << "DISPLAY" << std::endl;
+// }
+
+int main(int argc,char *argv[])
 {
-    std::cout << "DISPLAY" << std::endl;
-}
+    std::string command;
+    PhoneBook phonebook;
+    Contact contact;
 
-int main()
-{
-    std::string command = "";
-    std::string ADD = "ADD";
-    std::string SEARCH = "SEARCH";
-    std::string EXIT = "EXIT";
-
-    while(command.compare(EXIT)!=0)
+    command = argv[1];
+    if(command.compare("ADD") == 0)
     {
-        std::cin >> command;
-        if(command.compare(ADD) == 0)
-        {
-            std::cout << "ADD" << std::endl;
-        }
-        else if(command.compare(SEARCH) == 0)
-        {
-            display_contacts();
-        }
+        std::cout << "ADD" << std::endl;
+    }
+    else if(command.compare("SEARCH") == 0)
+    {
+        std::cout << "SEARCH" << std::endl;
+    }
+    else if(command.compare("EXIT") == 0)
+    {
+        std::cout << "EXIT" << std::endl;
     }
 }
