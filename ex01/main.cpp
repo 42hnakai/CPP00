@@ -6,6 +6,7 @@ int main()
     PhoneBook phonebook;
     Contact contact;
     int index;
+    int i = 0;
 
     command = " ";
     while(command.compare("EXIT") != 0)
@@ -24,10 +25,12 @@ int main()
             std::cin >> contact.phone_number;
             std::cout << "Darkest Secret: ";
             std::cin >> contact.darkest_secret;
-            phonebook.add(contact);
+            phonebook.add(i % 8,contact);
+            i++;
         }
         else if(command.compare("SEARCH") == 0)
         {
+            std::cout << "index: ";
             std::cin >> index;
             phonebook.display_contacts(index);
         }

@@ -2,15 +2,31 @@
 
 void PhoneBook::display_contacts(int index)
 {
-    std::cout << contact[index].first_name << "|"; 
-    std::cout << contact[index].last_name << "|";
-    std::cout << contact[index].nickname << "|"; 
-    std::cout << contact[index].phone_number << std::endl; 
+    std::cout.setf(std::ios::right);
+    if(contact[index].first_name.length() > 10)
+        std::cout << std::setw(10) << contact[index].first_name.substr(0,9) << "." << "|" << std::endl;
+    else
+        std::cout << std::setw(11) << contact[index].first_name << "|" << std::endl;
+    if(contact[index].last_name.length() > 10)
+        std::cout << std::setw(10) << contact[index].last_name.substr(0,9) << "." << "|" << std::endl;
+    else
+        std::cout << std::setw(11) << contact[index].last_name << "|" << std::endl;
+    if(contact[index].nickname.length()> 10)
+        std::cout << std::setw(10) << contact[index].nickname.substr(0,9) << "." << "|" << std::endl;
+    else
+        std::cout << std::setw(11) << contact[index].nickname << "|" << std::endl;
+    if(contact[index].phone_number.length() > 10)
+        std::cout << std::setw(10) << contact[index].phone_number.substr(0,9) << "." << "|" << std::endl;
+    else
+        std::cout << std::setw(11) << contact[index].phone_number << "|" << std::endl;
+    if(contact[index].darkest_secret.length() > 10)
+        std::cout << std::setw(10) << contact[index].darkest_secret.substr(0,9) << "." << "|" << std::endl;
+    else
+        std::cout << std::setw(11) << contact[index].darkest_secret << "|" << std::endl;
 }
 
-void PhoneBook::add(Contact input_contact)
+void PhoneBook::add(int i,Contact input_contact)
 {
-    int i = 0;
     contact[i].first_name = input_contact.first_name;
     contact[i].last_name = input_contact.last_name;
     contact[i].nickname = input_contact.nickname;

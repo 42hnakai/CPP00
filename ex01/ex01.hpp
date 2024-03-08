@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 class Contact{
     public:
@@ -17,7 +18,7 @@ class PhoneBook{
     public:
         Contact contact[8];
         void serch(char *contact);
-        void add(Contact contact);
+        void add(int i,Contact contact);
         void display_contacts(int index);
     private:
 };
