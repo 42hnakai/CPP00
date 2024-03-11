@@ -1,28 +1,21 @@
 #include "ex01.hpp"
 
+void PhoneBook::display_field(const std::string& field)
+{
+    if(field.length() > 10)
+        std::cout << std::setw(10) << field.substr(0,9) << "." << "|" << std::endl;
+    else
+        std::cout << std::setw(11) << field << "|" << std::endl;
+}
+
 void PhoneBook::display_contacts(int index)
 {
     std::cout.setf(std::ios::right);
-    if(contact[index].first_name.length() > 10)
-        std::cout << std::setw(10) << contact[index].first_name.substr(0,9) << "." << "|" << std::endl;
-    else
-        std::cout << std::setw(11) << contact[index].first_name << "|" << std::endl;
-    if(contact[index].last_name.length() > 10)
-        std::cout << std::setw(10) << contact[index].last_name.substr(0,9) << "." << "|" << std::endl;
-    else
-        std::cout << std::setw(11) << contact[index].last_name << "|" << std::endl;
-    if(contact[index].nickname.length()> 10)
-        std::cout << std::setw(10) << contact[index].nickname.substr(0,9) << "." << "|" << std::endl;
-    else
-        std::cout << std::setw(11) << contact[index].nickname << "|" << std::endl;
-    if(contact[index].phone_number.length() > 10)
-        std::cout << std::setw(10) << contact[index].phone_number.substr(0,9) << "." << "|" << std::endl;
-    else
-        std::cout << std::setw(11) << contact[index].phone_number << "|" << std::endl;
-    if(contact[index].darkest_secret.length() > 10)
-        std::cout << std::setw(10) << contact[index].darkest_secret.substr(0,9) << "." << "|" << std::endl;
-    else
-        std::cout << std::setw(11) << contact[index].darkest_secret << "|" << std::endl;
+    display_field(contact[index].first_name);
+    display_field(contact[index].last_name);
+    display_field(contact[index].nickname);
+    display_field(contact[index].phone_number);
+    display_field(contact[index].darkest_secret);
 }
 
 void PhoneBook::add(int i,Contact input_contact)

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <stdio.h>
 
 class Contact{
     public:
@@ -20,7 +21,10 @@ class PhoneBook{
         void serch(char *contact);
         void add(int i,Contact contact);
         void display_contacts(int index);
+        void display_field(const std::string& field);
     private:
 };
+
+bool is_error_input(std::string input);
 
 #endif

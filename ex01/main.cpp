@@ -5,26 +5,56 @@ int main()
     std::string command;
     PhoneBook phonebook;
     Contact contact;
-    int index;
+    std::string index;
     int i = 0;
 
     command = " ";
     while(command.compare("EXIT") != 0)
     {
         std::cout << "Command: ";
-        std::cin >> command;
+        std::getline(std::cin,command);
+        if(std::cin.eof())
+        {
+            std::cout << "[ERROR]:not end of file" << std::endl;
+            return 0;
+        }
         if(command.compare("ADD") == 0)
         {
             std::cout << "First Name: ";
-            std::cin >> contact.first_name;
+            std::getline(std::cin,contact.first_name);
+            if(std::cin.eof())
+            {
+                std::cout << "[ERROR]:not end of file" << std::endl;
+                return 0;
+            }
             std::cout << "Last Name: ";
-            std::cin >> contact.last_name;
+            std::getline(std::cin,contact.last_name);
+            if(std::cin.eof())
+            {
+                std::cout << "[ERROR]:not end of file" << std::endl;
+                return 0;
+            }
             std::cout << "Nickname: ";
-            std::cin >> contact.nickname;
+            std::getline(std::cin,contact.nickname);
+            if(std::cin.eof())
+            {
+                std::cout << "[ERROR]:not end of file" << std::endl;
+                return 0;
+            }
             std::cout << "Phone Number: ";
-            std::cin >> contact.phone_number;
+            std::getline(std::cin,contact.phone_number);
+            if(std::cin.eof())
+            {
+                std::cout << "[ERROR]:not end of file" << std::endl;
+                return 0;
+            }
             std::cout << "Darkest Secret: ";
-            std::cin >> contact.darkest_secret;
+            std::getline(std::cin,contact.darkest_secret);
+            if(std::cin.eof())
+            {
+                std::cout << "[ERROR]:not end of file" << std::endl;
+                return 0;
+            }
             phonebook.add(i % 8,contact);
             i++;
         }
@@ -32,7 +62,10 @@ int main()
         {
             std::cout << "index: ";
             std::cin >> index;
-            phonebook.display_contacts(index);
+            if(is_error_input(index) == true)
+                std::cout << "Error: Invalid index" << std::endl;
+            else
+                phonebook.display_contacts(stoi(index));
         }
     }
     return 0;
